@@ -1,0 +1,14 @@
+<h3>Focused Input field on page load using @ViewChild() decorator</h3>
+<!-- <input type="tex/t" placeholder="Focused input" #sample> -->
+<input type="text" class="p-1 border rounded" placeholder="Focused input" #sample>
+
+<h3>Not focused input</h3>
+<input type="text" class="p-1 border rounded" placeholder="Not Focused input">
+
+<p #changeTextColor class="mb-5">
+    This text will change color to blue on page load.
+</p>
+
+<p>
+    Title came from Parent Component using @ViewChild(): {{ title() }}
+</p>

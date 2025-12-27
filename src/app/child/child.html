@@ -1,0 +1,14 @@
+<p>child works! - {{title}}</p>
+<p>Meters Value in centimeters: {{metersModelValue}}</p>
+
+<p>
+    Person Name: {{personInfo.name}}
+</p>
+
+<p>
+    Person Age: {{personInfo.age}}
+</p>
+
+@for (item of items; track $index) {
+    <p>{{item.name}} | {{item.age}}</p>
+}

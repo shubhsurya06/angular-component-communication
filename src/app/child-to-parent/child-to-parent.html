@@ -1,0 +1,15 @@
+<p class="mb-4 font-medium">
+    Emitting value from child using @Output():
+</p>
+<div class="mb-4">
+    <input type="text" [(ngModel)]="childInputValue" class="border p-1 rounded" placeholder="Enter value" />
+    <button class="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 transition cursor-pointer"
+        (click)="emitValue()">Emit String Value</button>
+</div>
+
+<div class="mb-4">
+    <input type="text" [(ngModel)]="inputValue" class="border p-1 rounded" placeholder="Enter value" />
+    <button class="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 transition cursor-pointer"
+        (click)="emitObjValue()">Emit Object Value</button>
+</div>
+
