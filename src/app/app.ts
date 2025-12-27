@@ -6,19 +6,20 @@ import { NgSwitch, NgSwitchCase, NgClass } from '@angular/common';
 import { ChildToParent } from './child-to-parent/child-to-parent';
 import { ViewChildComponent } from './view-child/view-child';
 import { ViewChildrenComp} from './view-children-comp/view-children-comp';
+import { ContentProjection } from './content-projection/content-projection';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Child, FormsModule, NgSwitch, NgSwitchCase, ChildToParent, NgClass, ViewChildComponent, ViewChildrenComp],
+  imports: [RouterOutlet, Child, FormsModule, NgSwitch, NgSwitchCase, ChildToParent, NgClass, ViewChildComponent, ViewChildrenComp, ContentProjection],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit {
   protected readonly title = signal('Angular21 App');
 
-  activeTab = signal<'parent-to-child' | 'child-to-parent' | 'view-child-decorators' | 'view-children-decorators'>('parent-to-child');
+  activeTab = signal<'parent-to-child' | 'child-to-parent' | 'view-child-decorators' | 'view-children-decorators' | 'content-projection'>('parent-to-child');
 
-  setTab(tab: 'parent-to-child' | 'child-to-parent' | 'view-child-decorators' | 'view-children-decorators') {
+  setTab(tab: 'parent-to-child' | 'child-to-parent' | 'view-child-decorators' | 'view-children-decorators' | 'content-projection') {
     this.activeTab.set(tab);
   }
 
@@ -48,6 +49,8 @@ export class App implements OnInit {
   @ViewChild('childRef') viewChildComponent!: ViewChildComponent;
 
   @ViewChildren('childrenRef') viewChildrenComponents!: ViewChildrenComp[];
+
+  dynamicParaTag = signal<string>('');
 
   constructor() { }
 
@@ -112,6 +115,10 @@ export class App implements OnInit {
       element.accessChildrenMethod(`Children method title ${counter}`);
       counter++;
     } 
+  }
+
+  setDynamicParaTagEle() {
+    this.dynamicParaTag.set('This is dynamic paragraph tag content set from Parent component method.');
   }
 
 }

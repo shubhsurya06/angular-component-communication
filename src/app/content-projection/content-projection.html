@@ -1,0 +1,10 @@
+<em>ng-content will use last priority value when have multiple ng-contents, it will show only last ng-content.</em>
+
+<p><br /></p>
+
+<ng-content select="#first"></ng-content>
+<p>This is my intermediate content.</p>
+<ng-content select="p"></ng-content>
+<p>This is my intermediate content.</p>
+
+<ng-content select=".heading-2"></ng-content>
